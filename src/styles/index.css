@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(1, 0, 41);
+  color: white;
+  padding: 1rem 5%;
+}
