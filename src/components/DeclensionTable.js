@@ -3,8 +3,8 @@ import "../styles/DeclensionTable.css";
 import declensions from "../js/declensions";
 
 const DeclensionTable = (props) => {
-  // const {cases: declension} = props;
-  const first = declensions.first_declension;
+  const declension = declensions.first_declension;
+
   return (
     <table className={props.classes || ""} id={props.id || ""}>
       <thead>
@@ -15,7 +15,7 @@ const DeclensionTable = (props) => {
         </tr>
       </thead>
       <tbody>
-        {Object.entries(first).map(([key, value], index) => (
+        {Object.entries(declension).map(([key, value], index) => (
           <tr className={key} key={index}>
             <td className={`case ${key}`}>{key}</td>
             <td className={`singular ${value.singular}`}>{value.singular}</td>
