@@ -1,3 +1,69 @@
 .case {
   text-transform: capitalize;
 }
+
+.declension-table {
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  /* border-spacing: 0; */
+  border-collapse: collapse;
+  --accent-1: rgb(255, 155, 238);
+  --accent-2: rgb(217, 184, 255);
+  --accent-3: rgb(179, 224, 255);
+  --accent-4: rgb(138, 207, 192);
+  --accent-5: rgb(235, 234, 183);
+  --accent-6: rgb(255, 185, 119);
+  display: inline-block;
+  vertical-align: top;
+  margin: 1rem;
+}
+.declension-table-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgba(145, 145, 145, 0.438);
+}
+
+td,
+th {
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  border-right: none;
+  border-left: none;
+}
+
+.singular,
+.plural {
+  text-align: center;
+}
+
+.case-column,
+.singular-column,
+.plural-column {
+  width: 7rem;
+}
+
+.case-column {
+  /* background: rgba(255, 150, 232, 0.301); */
+}
+.singular-column {
+}
+.nominative {
+  color: var(--accent-1);
+}
+.genitive {
+  color: var(--accent-2);
+}
+.dative {
+  color: var(--accent-3);
+}
+.accusative {
+  color: var(--accent-4);
+}
+.ablative {
+  color: var(--accent-5);
+}
+.vocative {
+  color: var(--accent-6);
+}
+.case {
+  text-align: left;
+}
