@@ -1,8 +1,10 @@
 import React from "react";
 import "./styles/App.css";
 import DeclensionTable from "./components/DeclensionTable";
+import declensions from "../src/js/declensions";
 
 const App = () => {
+  const allDeclensions = declensions.declensions;
   return (
     <div id="home">
       <h1 className="heading">Latin</h1>
@@ -14,7 +16,13 @@ const App = () => {
             grammatical case, number and gender.
           </p>
         </header>
-        <DeclensionTable></DeclensionTable>
+        {Object.entries(allDeclensions).map(([key, value], index) => (
+          <DeclensionTable
+            declension={value}
+            declensionName={key}
+            key={index}
+          ></DeclensionTable>
+        ))}
       </section>
     </div>
   );

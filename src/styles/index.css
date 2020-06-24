@@ -3,7 +3,8 @@ body {
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(1, 0, 41);
-  color: white;
+  background: rgb(241, 241, 241);
   padding: 1rem 5%;
+  color: white;
+  color: rgb(46, 46, 46);
 }

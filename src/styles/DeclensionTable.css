@@ -3,15 +3,21 @@
 }
 
 .declension-table {
-  border: 1px solid rgba(255, 255, 255, 0.308);
+  border: 1px solid rgba(138, 138, 138, 0.308);
   /* border-spacing: 0; */
   border-collapse: collapse;
-  --accent-1: rgb(255, 155, 238);
-  --accent-2: rgb(217, 184, 255);
-  --accent-3: rgb(179, 224, 255);
-  --accent-4: rgb(138, 207, 192);
+  /* --accent-1: rgb(255, 227, 250);
+  --accent-2: rgb(239, 225, 255);
+  --accent-3: rgb(217, 240, 255);
+  --accent-4: rgb(204, 233, 227);
   --accent-5: rgb(235, 234, 183);
-  --accent-6: rgb(255, 185, 119);
+  --accent-6: rgb(255, 218, 183); */
+  --accent-1: rgb(112, 77, 106);
+  --accent-2: rgb(119, 101, 139);
+  --accent-3: rgb(88, 109, 122);
+  --accent-4: rgb(80, 117, 109);
+  --accent-5: rgb(109, 108, 74);
+  --accent-6: rgb(121, 91, 64);
   display: inline-block;
   vertical-align: top;
   margin: 1rem;
@@ -20,14 +26,16 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: rgba(145, 145, 145, 0.438);
+  background: rgba(189, 189, 189, 0.438);
+  padding: 0.5rem;
 }
 
-td,
-th {
+.declension-table td,
+.declension-table th {
   border: 1px solid rgba(255, 255, 255, 0.308);
   border-right: none;
   border-left: none;
+  padding: 0.4rem 0.5rem;
 }
 
 .singular,
