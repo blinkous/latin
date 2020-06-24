@@ -1,26 +1,17 @@
 .case {
+  text-align: left;
   text-transform: capitalize;
 }
 
 .declension-table {
   border: 1px solid rgba(138, 138, 138, 0.308);
-  /* border-spacing: 0; */
   border-collapse: collapse;
-  /* --accent-1: rgb(255, 227, 250);
-  --accent-2: rgb(239, 225, 255);
-  --accent-3: rgb(217, 240, 255);
-  --accent-4: rgb(204, 233, 227);
-  --accent-5: rgb(235, 234, 183);
-  --accent-6: rgb(255, 218, 183); */
-  --accent-1: rgb(112, 77, 106);
-  --accent-2: rgb(119, 101, 139);
-  --accent-3: rgb(88, 109, 122);
-  --accent-4: rgb(80, 117, 109);
-  --accent-5: rgb(109, 108, 74);
-  --accent-6: rgb(121, 91, 64);
   display: inline-block;
   vertical-align: top;
   margin: 1rem;
+  font-weight: bold;
+  border-radius: 9px;
+  overflow: hidden;
 }
 .declension-table-title {
   font-weight: bold;
@@ -71,7 +62,4 @@
 }
 .vocative {
   color: var(--accent-6);
-}
-.case {
-  text-align: left;
 }

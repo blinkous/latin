@@ -3,8 +3,32 @@ body {
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(241, 241, 241);
   padding: 1rem 5%;
-  color: white;
-  color: rgb(46, 46, 46);
+
+  --background-main: white;
+  --foreground-main: rgb(46, 46, 46);
+  --font-color: var(--foreground-main);
+  --accent-1: rgb(175, 0, 146);
+  --accent-2: rgb(104, 0, 223);
+  --accent-3: rgb(0, 135, 219);
+  --accent-4: rgb(0, 160, 125);
+  --accent-5: rgb(146, 141, 0);
+  --accent-6: rgb(146, 68, 0);
+
+  --green-palette-1: rgb(114, 175, 0);
+  --green-palette-2: rgb(0, 112, 15);
+  --green-palette-3: rgb(27, 163, 100);
+  --green-palette-4: rgb(0, 113, 128);
+  --green-palette-5: rgb(0, 132, 194);
+  --green-palette-6: rgb(0, 75, 146);
+
+  --pink-pallete-1: rgb(219, 106, 172);
+  --pink-pallete-2: rgb(214, 90, 204);
+  --pink-pallete-3: rgb(177, 107, 173);
+  --pink-pallete-4: rgb(115, 27, 150);
+  --pink-pallete-5: rgb(162, 40, 219);
+  --pink-pallete-6: rgb(133, 89, 184);
+
+  background: var(--background-main);
+  color: var(--font-color);
 }
