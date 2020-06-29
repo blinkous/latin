@@ -5,7 +5,9 @@ const DeclensionTable = (props) => {
   const { declension, declensionName } = props;
 
   return (
-    <table className={`declension-table ${declensionName}`}>
+    <table
+      className={`declension-table ${declensionName} ${props.classes || ""}`}
+    >
       <caption className={`${declensionName}-caption declension-table-title`}>
         {
           declensionName
@@ -29,8 +31,14 @@ const DeclensionTable = (props) => {
         {Object.entries(declension).map(([key, value], index) => (
           <tr className={key} key={index}>
             <th className={`case ${key}`}>{key}</th>
-            <td className={`singular ${value.singular}`}>{value.singular}</td>
-            <td className={`plural ${value.plural}`}>{value.plural}</td>
+            <td className={`singular ${value.singular}`}>
+              <span className="root-word">{props.root && props.root}</span>
+              {value.singular}
+            </td>
+            <td className={`plural ${value.plural}`}>
+              <span className="root-word">{props.root && props.root}</span>
+              {value.plural}
+            </td>
           </tr>
         ))}
       </tbody>

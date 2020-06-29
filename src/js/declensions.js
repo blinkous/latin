@@ -2,6 +2,29 @@
 export default {
   definition:
     "The variation of a noun, pronoun, adjective or article to indicate grammatical case, number and gender.",
+  cases: {
+    nominative: {
+      definition:
+        "Case for the noun or pronoun when it is the subject of a sentence/clause. It is when it is the subject of a verb or doing the action of the verb. Derived from nomen (name).",
+      use: `the _(subject)`,
+    },
+    genitive: {
+      definition: "",
+      use: `of the _ `,
+    },
+    dative: {
+      definition: "",
+      use: `to/for the _`,
+    },
+    accusative: {
+      definition: "",
+      use: `the _(object)`,
+    },
+    ablative: {
+      definition: "",
+      use: `by/with/from/in/on the _`,
+    },
+  },
   declensions: {
     first_declension: {
       nominative: {

@@ -13,6 +13,25 @@
   border-radius: 9px;
   overflow: hidden;
 }
+.declension-table.decliner {
+  border: 1px solid var(--accent-1);
+}
+.decliner .declension-table-title {
+  position: relative;
+  color: var(--background-main);
+  z-index: 0;
+}
+.decliner .declension-table-title::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--accent-1);
+  opacity: 0.8;
+  z-index: -1;
+}
 .declension-table-title {
   font-weight: bold;
   text-transform: uppercase;
@@ -62,4 +81,7 @@
 }
 .vocative {
   color: var(--accent-6);
+}
+.root-word {
+  color: gray;
 }
