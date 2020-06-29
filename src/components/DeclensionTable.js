@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/DeclensionTable.css";
 
 const DeclensionTable = (props) => {
-  const { declension, declensionName } = props;
+  const { declension, declensionName, cases } = props;
 
   return (
     <table
@@ -30,12 +30,15 @@ const DeclensionTable = (props) => {
       <tbody>
         {Object.entries(declension).map(([key, value], index) => (
           <tr className={key} key={index}>
-            <th className={`case ${key}`}>{key}</th>
-            <td className={`singular ${value.singular}`}>
+            <th className={`case ${key}`}>
+              {key}
+              <span className="use-cases">{cases[key].use}</span>
+            </th>
+            <td className={`declination singular ${value.singular}`}>
               <span className="root-word">{props.root && props.root}</span>
               {value.singular}
             </td>
-            <td className={`plural ${value.plural}`}>
+            <td className={`declination plural ${value.plural}`}>
               <span className="root-word">{props.root && props.root}</span>
               {value.plural}
             </td>

@@ -6,23 +6,27 @@ export default {
     nominative: {
       definition:
         "Case for the noun or pronoun when it is the subject of a sentence/clause. It is when it is the subject of a verb or doing the action of the verb. Derived from nomen (name).",
-      use: `the _(subject)`,
+      use: `the (subject)`,
     },
     genitive: {
       definition: "",
-      use: `of the _ `,
+      use: `of the`,
     },
     dative: {
       definition: "",
-      use: `to/for the _`,
+      use: `to/for the`,
     },
     accusative: {
       definition: "",
-      use: `the _(object)`,
+      use: `the (object)`,
     },
     ablative: {
       definition: "",
-      use: `by/with/from/in/on the _`,
+      use: `by/with/from/in/on the`,
+    },
+    vocative: {
+      definition: "",
+      use: `demand`,
     },
   },
   declensions: {

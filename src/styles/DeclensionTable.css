@@ -45,7 +45,11 @@
   border: 1px solid rgba(255, 255, 255, 0.308);
   border-right: none;
   border-left: none;
-  padding: 0.4rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  vertical-align: top;
+}
+.declension-table.decliner .declination {
+  letter-spacing: 0.05rem;
 }
 
 .singular,
@@ -83,5 +87,12 @@
   color: var(--accent-6);
 }
 .root-word {
-  color: gray;
+  color: rgb(131, 131, 131);
+}
+.use-cases {
+  color: rgb(148, 148, 148);
+  display: block;
+  margin: 0;
+  width: 100%;
+  text-transform: lowercase;
 }
