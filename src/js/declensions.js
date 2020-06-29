@@ -73,6 +73,7 @@ export default {
         singular: "ō",
         plural: "īs",
       },
+      /* Fix this in declining */
       vocative: {
         singular: "us -> e | Name end ius -> ī",
         plural: "ī",
@@ -99,6 +100,7 @@ export default {
         singular: "ō",
         plural: "īs",
       },
+      /* Fix this in declining */
       vocative: {
         singular: "us -> e | Name end ius -> ī",
         plural: "a",

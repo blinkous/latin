@@ -1,51 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles/App.css";
 import DeclensionTable from "./components/DeclensionTable";
+import { Decliner } from "./components/Decliner";
 import declensions from "../src/js/declensions";
 
 const App = () => {
-  const [showDeclined, setShowDeclined] = useState(false);
-  const [root, setRoot] = useState("");
-  const [currDeclension, setCurrDeclension] = useState("first_declension");
-
   const allDeclensions = declensions.declensions;
   const cases = declensions.cases;
-  const declensionOptions = [
-    "First",
-    "Second",
-    "Neuter Second",
-    "Third",
-    "Third",
-    "Neuter Third",
-    "Fourth",
-    "Neuter Fourth",
-    "Fifth",
-  ];
-
-  const handleRootChange = (e) => {
-    const val = e.target.value;
-    console.log(val);
-    if (val !== null) {
-      setShowDeclined(true);
-      setRoot(val);
-    }
-  };
-  const handleDecChange = (e) => {
-    const decl = `${e.target.value}_declension`;
-    setCurrDeclension(decl);
-  };
-
-  const buildDeclinedTables = (root, declension) => {
-    return (
-      <DeclensionTable
-        declension={allDeclensions[declension]}
-        declensionName={declension}
-        cases={cases}
-        root={root}
-        classes="decliner"
-      ></DeclensionTable>
-    );
-  };
 
   return (
     <div id="home">
@@ -98,31 +59,7 @@ const App = () => {
             to indicate grammatical case, number and gender.
           </p>
         </header>
-        <div className="decliner">
-          <form>
-            <input
-              type="text"
-              name="root_word"
-              onChange={handleRootChange}
-              placeholder="Latin Root Word"
-            />
-            <select
-              name="declension_select"
-              id="declension_select"
-              onChange={handleDecChange}
-            >
-              {declensionOptions.map((el, index) => (
-                <option
-                  value={el.toLowerCase().replace(/\s/g, "_")}
-                  key={index}
-                >
-                  {el} Declension
-                </option>
-              ))}
-            </select>
-          </form>
-          {showDeclined && buildDeclinedTables(root, currDeclension)}
-        </div>
+        <Decliner></Decliner>
         {Object.entries(allDeclensions).map(([key, value], index) => (
           <DeclensionTable
             declension={value}
