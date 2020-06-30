@@ -26,7 +26,7 @@ export default {
     },
     vocative: {
       definition: "",
-      use: `demand`,
+      use: `address`,
     },
   },
   declensions: {

@@ -52,7 +52,7 @@ export const Decliner = () => {
           name="root_word"
           className="decliner-root-word"
           onChange={handleRootChange}
-          placeholder="Latin Root Word"
+          placeholder="Latin Stem"
         />
         <select
           name="declension_select"
