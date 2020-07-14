@@ -23,16 +23,16 @@ export const Decliner = () => {
     "Fifth",
   ];
 
-  const handleStemChange = (e) => {
-    const val = e.target.value;
+  const handleStemChange = ({ target }) => {
+    const val = target.value;
     if (val !== "") {
       showDeclined !== true && setShowDeclined(true);
       setStem(val);
     }
   };
 
-  const handleDecChange = (e) => {
-    const decl = `${e.target.value}_declension`;
+  const handleDecChange = ({ target }) => {
+    const decl = `${target.value}_declension`;
     setCurrDeclension(decl);
   };
 
@@ -46,22 +46,22 @@ export const Decliner = () => {
     ></DeclensionTable>
   );
 
-  const handleNomChange = (e) => {
-    const val = e.target.value;
-    if (stem === "") {
-      if (val !== "") {
-        setNominativeForm(val);
-      }
+  const handleNomChange = ({ target }) => {
+    const val = target.value;
+    if (stem === "" && val !== "") {
+      setNominativeForm(val);
     }
   };
 
-  const handleGenChange = (e) => {
-    const val = e.target.value;
+  const handleGenChange = ({ target }) => {
+    const val = target.value;
     if (val !== "") {
       const newStem = findStem(val);
       if (newStem !== undefined) {
         setStem(newStem);
         showDeclined !== true && setShowDeclined(true);
+      } else {
+        setStem("");
       }
     }
   };
