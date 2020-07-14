@@ -1,4 +1,4 @@
-/* aeiou */
+/* āēīōū */
 export default {
   definition:
     "The variation of a noun, pronoun, adjective or article to indicate grammatical case, number and gender.",
@@ -37,19 +37,19 @@ export default {
       },
       genitive: {
         singular: "ae",
-        plural: "arum",
+        plural: "ārum",
       },
       dative: {
         singular: "ae",
-        plural: "is",
+        plural: "īs",
       },
       accusative: {
         singular: "am",
-        plural: "as",
+        plural: "ās",
       },
       ablative: {
-        singular: "a",
-        plural: "is",
+        singular: "ā",
+        plural: "īs",
       },
       vocative: {
         singular: "a",
@@ -59,28 +59,28 @@ export default {
     second_declension: {
       nominative: {
         singular: "us",
-        plural: "i",
+        plural: "ī",
       },
       genitive: {
-        singular: "i",
-        plural: "orum",
+        singular: "ī",
+        plural: "ōrum",
       },
       dative: {
-        singular: "o",
-        plural: "is",
+        singular: "ō",
+        plural: "īs",
       },
       accusative: {
         singular: "um",
-        plural: "os",
+        plural: "ōs",
       },
       ablative: {
-        singular: "o",
-        plural: "is",
+        singular: "ō",
+        plural: "īs",
       },
       /* Fix this in declining */
       vocative: {
-        singular: "us -> e | Name end ius -> i",
-        plural: "i",
+        singular: "us -> e | Name end ius -> ī",
+        plural: "ī",
       },
     },
     neuter_second_declension: {
@@ -89,43 +89,43 @@ export default {
         plural: "a",
       },
       genitive: {
-        singular: "i",
-        plural: "orum",
+        singular: "ī",
+        plural: "ōrum",
       },
       dative: {
-        singular: "o",
-        plural: "is",
+        singular: "ō",
+        plural: "īs",
       },
       accusative: {
         singular: "um",
         plural: "a",
       },
       ablative: {
-        singular: "o",
-        plural: "is",
+        singular: "ō",
+        plural: "īs",
       },
       /* Fix this in declining */
       vocative: {
-        singular: "us -> e | Name end ius -> i",
+        singular: "us -> e | Name end ius -> ī",
         plural: "a",
       },
     },
     third_declension: {
       nominative: {
         singular: "-",
-        plural: "es",
+        plural: "ēs",
       },
       genitive: {
         singular: "is",
         plural: "um",
       },
       dative: {
-        singular: "i",
+        singular: "ī",
         plural: "ibus",
       },
       accusative: {
         singular: "em",
-        plural: "es",
+        plural: "ēs",
       },
       ablative: {
         singular: "e",
@@ -133,7 +133,7 @@ export default {
       },
       vocative: {
         singular: "-",
-        plural: "es",
+        plural: "ēs",
       },
     },
     neuter_third_declension: {
@@ -146,7 +146,7 @@ export default {
         plural: "um",
       },
       dative: {
-        singular: "i",
+        singular: "ī",
         plural: "ibus",
       },
       accusative: {
@@ -165,36 +165,36 @@ export default {
     fourth_declension: {
       nominative: {
         singular: "us",
-        plural: "us",
+        plural: "ūs",
       },
       genitive: {
-        singular: "us",
+        singular: "ūs",
         plural: "uum",
       },
       dative: {
-        singular: "ui",
+        singular: "uī",
         plural: "ibus",
       },
       accusative: {
         singular: "um",
-        plural: "us",
+        plural: "ūs",
       },
       ablative: {
-        singular: "u",
+        singular: "ū",
         plural: "ibus",
       },
       vocative: {
         singular: "us",
-        plural: "us",
+        plural: "ūs",
       },
     },
     neuter_fourth_declension: {
       nominative: {
-        singular: "u",
+        singular: "ū",
         plural: "ua",
       },
       genitive: {
-        singular: "us",
+        singular: "ūs",
         plural: "uum",
       },
       dative: {
@@ -202,42 +202,42 @@ export default {
         plural: "ibus",
       },
       accusative: {
-        singular: "u",
+        singular: "ū",
         plural: "ua",
       },
       ablative: {
-        singular: "u",
+        singular: "ū",
         plural: "ibus",
       },
       vocative: {
-        singular: "u",
+        singular: "ū",
         plural: "ua",
       },
     },
     fifth_declension: {
       nominative: {
-        singular: "es",
-        plural: "es",
+        singular: "ēs",
+        plural: "ēs",
       },
       genitive: {
-        singular: "ei",
-        plural: "erum",
+        singular: "eī",
+        plural: "ērum",
       },
       dative: {
-        singular: "ei",
-        plural: "ebum",
+        singular: "eī",
+        plural: "ēbum",
       },
       accusative: {
         singular: "em",
-        plural: "es",
+        plural: "ēs",
       },
       ablative: {
-        singular: "e",
-        plural: "ebus",
+        singular: "ē",
+        plural: "ēbus",
       },
       vocative: {
-        singular: "es",
-        plural: "es",
+        singular: "ēs",
+        plural: "ēs",
       },
     },
   },
