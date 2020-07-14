@@ -7,7 +7,7 @@ export const Decliner = () => {
   const [showDeclined, setShowDeclined] = useState(false);
   const [stem, setStem] = useState("");
   const [nominativeForm, setNominativeForm] = useState("");
-  const [gentiveForm, setGentiveForm] = useState("");
+  const [genitiveForm, setGentiveForm] = useState("");
   const [currDeclension, setCurrDeclension] = useState("first_declension");
 
   const allDeclensions = declensions.declensions;
@@ -26,7 +26,7 @@ export const Decliner = () => {
   const handleStemChange = (e) => {
     const val = e.target.value;
     if (val !== "") {
-      setShowDeclined(true);
+      showDeclined !== true && setShowDeclined(true);
       setStem(val);
     }
   };
@@ -51,26 +51,31 @@ export const Decliner = () => {
     if (stem === "") {
       if (val !== "") {
         setNominativeForm(val);
-        if (gentiveForm !== "") {
-          setShowDeclined(true);
-        }
       }
     }
   };
 
   const handleGenChange = (e) => {
     const val = e.target.value;
-    if (stem === "") {
-      if (val !== "") {
-        setGentiveForm(val);
-        if (nominativeForm !== "") {
-          setShowDeclined(true);
-        }
+    if (val !== "") {
+      const newStem = findStem(val);
+      if (newStem !== undefined) {
+        setStem(newStem);
+        showDeclined !== true && setShowDeclined(true);
       }
     }
   };
 
-  const findStem = (nomForm, genForm) => {
+  const findStem = (genForm) => {
+    const genEnding = allDeclensions[currDeclension].genitive;
+    const regexSingular = new RegExp(`${genEnding.singular}$`, "i");
+    const regexPlural = new RegExp(`${genEnding.plural}$`, "i");
+
+    if (regexSingular.test(genForm)) {
+      return genForm.replace(regexSingular, "");
+    } else if (regexPlural.test(genForm)) {
+      return genForm.replace(regexPlural, "");
+    }
     /* Future add support for both special and non-special char */
   };
 
