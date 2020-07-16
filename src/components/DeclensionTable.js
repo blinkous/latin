@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/DeclensionTable.css";
+import { cleanUnderscoresToProper } from "../js/helpers";
 
 const DeclensionTable = (props) => {
   const { declension, declensionName, cases } = props;
@@ -9,11 +10,7 @@ const DeclensionTable = (props) => {
       className={`declension-table ${declensionName} ${props.classes || ""}`}
     >
       <caption className={`${declensionName}-caption declension-table-title`}>
-        {
-          declensionName
-            .replace(/_/g, " ") // replace all underscores with spaces
-            .replace(/^[a-z]|\s\w/g, (match) => match.toUpperCase()) //make every word uppercase
-        }
+        {cleanUnderscoresToProper(declensionName)}
       </caption>
       <colgroup>
         <col className="case-column" />
