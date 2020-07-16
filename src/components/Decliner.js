@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
 import "../styles/Decliner.css";
-import { cleanUnderscoresToProper } from "../js/helpers";
+import { cleanUnderscoresToProper, toProperCase } from "../js/helpers";
 
 export const Decliner = () => {
+  const allDeclensions = declensions.declensions;
+  const declensionOptions = Object.entries(allDeclensions).map(([key]) => key);
+
+  const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
   const [showDeclined, setShowDeclined] = useState(false);
   const [stem, setStem] = useState("");
-  const [currDeclension, setCurrDeclension] = useState("first_declension");
-
-  const allDeclensions = declensions.declensions;
-  const cases = declensions.cases;
-  const declensionOptions = Object.entries(allDeclensions).map(([key]) => key);
 
   const handleStemChange = ({ target }) => {
     const val = target.value;
@@ -21,7 +20,7 @@ export const Decliner = () => {
     }
   };
 
-  const handleDecChange = ({ target }) => {
+  const handleDeclChange = ({ target }) => {
     const decl = target.value;
     setCurrDeclension(decl);
   };
@@ -30,7 +29,7 @@ export const Decliner = () => {
     <DeclensionTable
       declension={allDeclensions[declension]}
       declensionName={declension}
-      cases={cases}
+      cases={declensions.cases}
       root={root}
       classes="decliner"
     ></DeclensionTable>
@@ -79,38 +78,38 @@ export const Decliner = () => {
     /* Future add support for both special and non-special char */
   };
 
+  const inputs = {
+    nominative: handleNomChange,
+    genitive: handleGenChange,
+    stem: handleStemChange,
+  };
+
   return (
     <div className="decliner">
       <form className="decliner-form">
-        <input
-          type="text"
-          name="nominative_word"
-          className="decliner-nominative-word decliner-field"
-          onChange={handleNomChange}
-          placeholder="Nominative Case"
-          title="Nominative Case"
-        />
-        <input
-          type="text"
-          name="genitive_word"
-          className="decliner-genitive-word decliner-field"
-          onChange={handleGenChange}
-          placeholder="Genitive Case"
-          title="Genitive Case"
-        />
+        {Object.entries(inputs).map(([key, value], index) => {
+          const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
+            key
+          )}${key !== "stem" ? " Case" : ""}`;
+
+          return (
+            <input
+              key={index}
+              type="text"
+              name={`${key}_word`}
+              className="decliner-nominative-word decliner-field"
+              className={`decliner-${key}-word decliner-field`}
+              onChange={value}
+              placeholder={inputName}
+              title={inputName}
+            />
+          );
+        })}
         <p>or</p>
-        <input
-          type="text"
-          name="stem_word"
-          className="decliner-stem-word decliner-field"
-          onChange={handleStemChange}
-          placeholder="Latin Stem"
-          title="Latin Stem"
-        />
         <select
           name="declension_select"
           className="decliner-declension-select decliner-field"
-          onChange={handleDecChange}
+          onChange={handleDeclChange}
         >
           {declensionOptions.map((el, index) => (
             <option value={el} key={index}>
