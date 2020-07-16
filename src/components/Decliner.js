@@ -87,7 +87,7 @@ export const Decliner = () => {
   return (
     <div className="decliner">
       <form className="decliner-form">
-        {Object.entries(inputs).map(([key, value], index) => {
+        {Object.entries(inputs).map(([key, value_callback], index) => {
           const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
             key
           )}${key !== "stem" ? " Case" : ""}`;
@@ -97,15 +97,16 @@ export const Decliner = () => {
               key={index}
               type="text"
               name={`${key}_word`}
-              className="decliner-nominative-word decliner-field"
               className={`decliner-${key}-word decliner-field`}
-              onChange={value}
+              onChange={value_callback}
               placeholder={inputName}
               title={inputName}
             />
           );
         })}
+
         <p>or</p>
+
         <select
           name="declension_select"
           className="decliner-declension-select decliner-field"
