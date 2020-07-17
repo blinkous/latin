@@ -16,8 +16,9 @@ export const Decliner = () => {
   const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
   const [showDeclined, setShowDeclined] = useState(false);
   const [stem, setStem] = useState("");
-  // const [nominative, setNominative] = useState("");
-  // const [genitive, setGenitive] = useState("");
+  const [stemInput, setStemInput] = useState("");
+  const [nominative, setNominative] = useState("");
+  const [genitive, setGenitive] = useState("");
 
   const buildDeclinedTables = (root, declension) => (
     <DeclensionTable
@@ -29,34 +30,37 @@ export const Decliner = () => {
     ></DeclensionTable>
   );
 
-  const handleStemChange = (e) => {
-    const val = e.target.value;
-    if (val !== "") {
-      showDeclined !== true && setShowDeclined(true);
-      setStem(val);
-    }
+  const handleDeclChange = (e) => {
+    setCurrDeclension(e.target.value);
+    console.log(e.target.value, currDeclension);
+    stemInput === "" && setStemFromGen(genitive);
   };
 
-  const handleDeclChange = (e) => {
-    const decl = e.target.value;
-    setCurrDeclension(decl);
+  const handleStemChange = (e) => {
+    const val = e.target.value;
+    showDeclined !== true && setShowDeclined(true);
+    setStem(val);
+    setStemInput(val);
   };
 
   const handleNomChange = (e) => {
-    // const val = e.target.value;
-    // setNominative(val);
+    setNominative(e.target.value);
   };
 
   const handleGenChange = (e) => {
     const val = e.target.value;
+    setGenitive(val);
+    setStemFromGen(val);
+  };
 
-    const newStem = findStem(val);
+  const setStemFromGen = (genCase) => {
+    const newStem = findStem(genCase);
     if (newStem !== undefined) {
       setStem(newStem);
       setShowDeclined(true);
     } else {
-      setStem("");
-      setShowDeclined(false);
+      setStem(stemInput);
+      stem === "" && setShowDeclined(false);
     }
   };
 
