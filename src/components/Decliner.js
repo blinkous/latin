@@ -1,27 +1,16 @@
 import React, { useState } from "react";
+import "../styles/Decliner.css";
 import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
-import "../styles/Decliner.css";
+import { cleanUnderscoresToProper, toProperCase } from "../js/helpers";
 
 export const Decliner = () => {
+  const allDeclensions = declensions.declensions;
+  const declensionOptions = Object.entries(allDeclensions).map(([key]) => key);
+
+  const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
   const [showDeclined, setShowDeclined] = useState(false);
   const [stem, setStem] = useState("");
-  const [nominativeForm, setNominativeForm] = useState("");
-  const [genitiveForm, setGentiveForm] = useState("");
-  const [currDeclension, setCurrDeclension] = useState("first_declension");
-
-  const allDeclensions = declensions.declensions;
-  const cases = declensions.cases;
-  const declensionOptions = [
-    "First",
-    "Second",
-    "Neuter Second",
-    "Third",
-    "Neuter Third",
-    "Fourth",
-    "Neuter Fourth",
-    "Fifth",
-  ];
 
   const handleStemChange = ({ target }) => {
     const val = target.value;
@@ -31,8 +20,8 @@ export const Decliner = () => {
     }
   };
 
-  const handleDecChange = ({ target }) => {
-    const decl = `${target.value}_declension`;
+  const handleDeclChange = ({ target }) => {
+    const decl = target.value;
     setCurrDeclension(decl);
   };
 
@@ -40,18 +29,11 @@ export const Decliner = () => {
     <DeclensionTable
       declension={allDeclensions[declension]}
       declensionName={declension}
-      cases={cases}
+      cases={declensions.cases}
       root={root}
       classes="decliner"
     ></DeclensionTable>
   );
-
-  const handleNomChange = ({ target }) => {
-    const val = target.value;
-    if (stem === "" && val !== "") {
-      setNominativeForm(val);
-    }
-  };
 
   const handleGenChange = ({ target }) => {
     const val = target.value;
@@ -66,6 +48,7 @@ export const Decliner = () => {
     }
   };
 
+  /* Given a latin word in genitive form, find the stem */
   const findStem = (genForm) => {
     const genEnding = allDeclensions[currDeclension].genitive;
     const regexSingular = new RegExp(`${genEnding.singular}$`, "i");
@@ -79,42 +62,42 @@ export const Decliner = () => {
     /* Future add support for both special and non-special char */
   };
 
+  const inputs = {
+    genitive: handleGenChange,
+    stem: handleStemChange,
+  };
+
   return (
     <div className="decliner">
       <form className="decliner-form">
-        <input
-          type="text"
-          name="nominative_word"
-          className="decliner-nominative-word decliner-field"
-          onChange={handleNomChange}
-          placeholder="Nominative Case"
-          title="Nominative Case"
-        />
-        <input
-          type="text"
-          name="genitive_word"
-          className="decliner-genitive-word decliner-field"
-          onChange={handleGenChange}
-          placeholder="Genitive Case"
-          title="Genitive Case"
-        />
+        {Object.entries(inputs).map(([key, value_callback], index) => {
+          const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
+            key
+          )}${key !== "stem" ? " Case" : ""}`;
+
+          return (
+            <input
+              key={index}
+              type="text"
+              name={`${key}_word`}
+              className={`decliner-${key}-word decliner-field`}
+              onChange={value_callback}
+              placeholder={inputName}
+              title={inputName}
+            />
+          );
+        })}
+
         <p>or</p>
-        <input
-          type="text"
-          name="stem_word"
-          className="decliner-stem-word decliner-field"
-          onChange={handleStemChange}
-          placeholder="Latin Stem"
-          title="Latin Stem"
-        />
+
         <select
           name="declension_select"
           className="decliner-declension-select decliner-field"
-          onChange={handleDecChange}
+          onChange={handleDeclChange}
         >
           {declensionOptions.map((el, index) => (
-            <option value={el.toLowerCase().replace(/\s/g, "_")} key={index}>
-              {el} Declension
+            <option value={el} key={index}>
+              {cleanUnderscoresToProper(el)}
             </option>
           ))}
         </select>
