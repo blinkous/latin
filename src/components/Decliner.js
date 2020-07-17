@@ -7,7 +7,7 @@ import {
   toProperCase,
   checkForSpecialChars,
   cleanSpecialChars,
-  handleKeyDown,
+  checkInput,
 } from "../js/helpers";
 
 export const Decliner = () => {
@@ -73,6 +73,15 @@ export const Decliner = () => {
       return genForm.replace(regexPlural, "");
     }
     /* Future add support for both special and non-special char */
+  };
+
+  const handleKeyDown = (e) => {
+    const checkedInput = checkInput(e.key, e.target.value);
+    if (checkedInput === true) {
+      e.preventDefault();
+    } else if (checkedInput !== false) {
+      e.target.value = checkedInput;
+    }
   };
 
   const inputs = {

@@ -17,14 +17,14 @@ export const cleanSpecialChars = (nString) => {
   return nString.replace(isSpecialG, "");
 };
 
-export const handleKeyDown = (e) => {
-  const checkedInput = checkForSpecialChars(e.key);
-  let val = e.target.value;
-  const cleanedInput = cleanSpecialChars(val);
+export const checkInput = (nKey, nVal) => {
+  const checkedInput = checkForSpecialChars(nKey);
+  const cleanedInput = cleanSpecialChars(nVal);
 
   if (checkedInput === true) {
-    e.preventDefault();
-  } else if (val.length !== cleanedInput.length) {
-    e.target.value = cleanedInput;
+    return true;
+  } else if (nVal.length !== cleanedInput.length) {
+    return cleanedInput;
   }
+  return false;
 };
