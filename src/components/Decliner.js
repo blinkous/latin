@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import "../styles/Decliner.css";
 import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
-import "../styles/Decliner.css";
 import { cleanUnderscoresToProper, toProperCase } from "../js/helpers";
 
 export const Decliner = () => {
@@ -35,12 +35,6 @@ export const Decliner = () => {
     ></DeclensionTable>
   );
 
-  const handleNomChange = ({ target }) => {
-    const val = target.value;
-    if (stem === "" && val !== "") {
-    }
-  };
-
   const handleGenChange = ({ target }) => {
     const val = target.value;
     if (val !== "") {
@@ -53,16 +47,6 @@ export const Decliner = () => {
       }
     }
   };
-
-  // console.log(
-  //   Object.entries(allDeclensions).map(([key, value], index) => {
-  //     return {
-  //       declension: key,
-  //       singular: value.genitive.singular,
-  //       plural: value.genitive.plural,
-  //     };
-  //   })
-  // );
 
   /* Given a latin word in genitive form, find the stem */
   const findStem = (genForm) => {
@@ -79,7 +63,6 @@ export const Decliner = () => {
   };
 
   const inputs = {
-    nominative: handleNomChange,
     genitive: handleGenChange,
     stem: handleStemChange,
   };
