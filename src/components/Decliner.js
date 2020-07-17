@@ -7,7 +7,6 @@ import {
   toProperCase,
   checkForSpecialChars,
   cleanSpecialChars,
-  checkInput,
 } from "../js/helpers";
 
 export const Decliner = () => {
@@ -76,11 +75,15 @@ export const Decliner = () => {
   };
 
   const handleKeyDown = (e) => {
-    const checkedInput = checkInput(e.key, e.target.value);
-    if (checkedInput === true) {
+    checkForSpecialChars(e.key) && e.preventDefault();
+  };
+
+  const handlePaste = (e) => {
+    const pastedText = e.clipboardData.getData("text");
+    const cleanedText = cleanSpecialChars(pastedText);
+    if (pastedText.length !== cleanedText) {
       e.preventDefault();
-    } else if (checkedInput !== false) {
-      e.target.value = checkedInput;
+      e.target.value = cleanedText;
     }
   };
 
@@ -97,7 +100,6 @@ export const Decliner = () => {
           const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
             key
           )}${key !== "stem" ? " Case" : ""}`;
-
           return (
             <input
               key={index}
@@ -106,6 +108,7 @@ export const Decliner = () => {
               className={`decliner-${key}-word decliner-field`}
               onChange={value_callback}
               onKeyDown={handleKeyDown}
+              onPaste={handlePaste}
               placeholder={inputName}
               title={inputName}
             />

@@ -16,15 +16,3 @@ export const cleanSpecialChars = (nString) => {
   const isSpecialG = new RegExp(getSpecialCharsRegex(), "g");
   return nString.replace(isSpecialG, "");
 };
-
-export const checkInput = (nKey, nVal) => {
-  const checkedInput = checkForSpecialChars(nKey);
-  const cleanedInput = cleanSpecialChars(nVal);
-
-  if (checkedInput === true) {
-    return true;
-  } else if (nVal.length !== cleanedInput.length) {
-    return cleanedInput;
-  }
-  return false;
-};
