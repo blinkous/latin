@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "../styles/Decliner.css";
 import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
-import { cleanUnderscoresToProper, toProperCase } from "../js/helpers";
+import {
+  cleanUnderscoresToProper,
+  toProperCase,
+  checkForSpecialChars,
+  cleanSpecialChars,
+} from "../js/helpers";
 
 export const Decliner = () => {
   const allDeclensions = declensions.declensions;
@@ -11,19 +16,9 @@ export const Decliner = () => {
   const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
   const [showDeclined, setShowDeclined] = useState(false);
   const [stem, setStem] = useState("");
-
-  const handleStemChange = ({ target }) => {
-    const val = target.value;
-    if (val !== "") {
-      showDeclined !== true && setShowDeclined(true);
-      setStem(val);
-    }
-  };
-
-  const handleDeclChange = ({ target }) => {
-    const decl = target.value;
-    setCurrDeclension(decl);
-  };
+  const [stemInput, setStemInput] = useState("");
+  const [nominative, setNominative] = useState("");
+  const [genitive, setGenitive] = useState("");
 
   const buildDeclinedTables = (root, declension) => (
     <DeclensionTable
@@ -32,19 +27,42 @@ export const Decliner = () => {
       cases={declensions.cases}
       root={root}
       classes="decliner"
+      nominative={nominative}
+      tentativeRoot={genitive}
     ></DeclensionTable>
   );
 
-  const handleGenChange = ({ target }) => {
-    const val = target.value;
-    if (val !== "") {
-      const newStem = findStem(val);
-      if (newStem !== undefined) {
-        setStem(newStem);
-        showDeclined !== true && setShowDeclined(true);
-      } else {
-        setStem("");
-      }
+  const handleDeclChange = (e) => {
+    setCurrDeclension(e.target.value);
+    console.log(e.target.value, currDeclension);
+    stemInput === "" && setStemFromGen(genitive);
+  };
+
+  const handleStemChange = (e) => {
+    const val = e.target.value;
+    showDeclined !== true && setShowDeclined(true);
+    setStem(val);
+    setStemInput(val);
+    val === "" && genitive !== "" && setStemFromGen(genitive);
+  };
+
+  const handleNomChange = (e) => {
+    setNominative(e.target.value);
+  };
+
+  const handleGenChange = (e) => {
+    const val = e.target.value;
+    setGenitive(val);
+    setStemFromGen(val);
+    showDeclined !== true && setShowDeclined(true);
+  };
+
+  const setStemFromGen = (genCase) => {
+    const newStem = findStem(genCase);
+    if (newStem !== undefined) {
+      setStem(newStem);
+    } else {
+      setStem(stemInput);
     }
   };
 
@@ -59,10 +77,23 @@ export const Decliner = () => {
     } else if (regexPlural.test(genForm)) {
       return genForm.replace(regexPlural, "");
     }
-    /* Future add support for both special and non-special char */
+  };
+
+  const handleKeyDown = (e) => {
+    checkForSpecialChars(e.key) && e.preventDefault();
+  };
+
+  const handlePaste = (e) => {
+    const pastedText = e.clipboardData.getData("text");
+    const cleanedText = cleanSpecialChars(pastedText);
+    if (pastedText.length !== cleanedText) {
+      e.preventDefault();
+      e.target.value = cleanedText;
+    }
   };
 
   const inputs = {
+    nominative: handleNomChange,
     genitive: handleGenChange,
     stem: handleStemChange,
   };
@@ -74,7 +105,6 @@ export const Decliner = () => {
           const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
             key
           )}${key !== "stem" ? " Case" : ""}`;
-
           return (
             <input
               key={index}
@@ -82,6 +112,8 @@ export const Decliner = () => {
               name={`${key}_word`}
               className={`decliner-${key}-word decliner-field`}
               onChange={value_callback}
+              onKeyDown={handleKeyDown}
+              onPaste={handlePaste}
               placeholder={inputName}
               title={inputName}
             />

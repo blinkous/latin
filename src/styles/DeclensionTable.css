@@ -16,6 +16,9 @@
 .declension-table.decliner {
   border: 1px solid var(--accent-1);
 }
+.declension-table.tentative .root-word {
+  opacity: 0.5;
+}
 .decliner .declension-table-title {
   position: relative;
   color: var(--background-main);
