@@ -3,7 +3,7 @@ import "../styles/DeclensionTable.css";
 import { cleanUnderscoresToProper } from "../js/helpers";
 
 const DeclensionTable = (props) => {
-  const { declension, declensionName, cases } = props;
+  const { declension, declensionName, cases, root, nominative } = props;
 
   return (
     <table
@@ -32,11 +32,13 @@ const DeclensionTable = (props) => {
               <span className="use-cases">{cases[key].use}</span>
             </th>
             <td className={`declination singular ${value.singular}`}>
-              <span className="root-word">{props.root && props.root}</span>
-              {value.singular}
+              <span className="root-word">
+                {nominative && key === "nominative" ? nominative : root}
+              </span>
+              {nominative && key === "nominative" ? "" : value.singular}
             </td>
             <td className={`declination plural ${value.plural}`}>
-              <span className="root-word">{props.root && props.root}</span>
+              <span className="root-word">{root}</span>
               {value.plural}
             </td>
           </tr>

@@ -27,6 +27,7 @@ export const Decliner = () => {
       cases={declensions.cases}
       root={root}
       classes="decliner"
+      nominative={nominative}
     ></DeclensionTable>
   );
 
