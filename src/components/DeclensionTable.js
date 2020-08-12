@@ -3,11 +3,20 @@ import "../styles/DeclensionTable.css";
 import { cleanUnderscoresToProper } from "../js/helpers";
 
 const DeclensionTable = (props) => {
-  const { declension, declensionName, cases, root, nominative } = props;
+  const {
+    declension,
+    declensionName,
+    cases,
+    root,
+    nominative,
+    tentativeRoot,
+  } = props;
 
   return (
     <table
-      className={`declension-table ${declensionName} ${props.classes || ""}`}
+      className={`declension-table ${declensionName} ${props.classes || ""}${
+        tentativeRoot && !root ? " tentative" : ""
+      }`}
     >
       <caption className={`${declensionName}-caption declension-table-title`}>
         {cleanUnderscoresToProper(declensionName)}
@@ -32,13 +41,15 @@ const DeclensionTable = (props) => {
               <span className="use-cases">{cases[key].use}</span>
             </th>
             <td className={`declination singular ${value.singular}`}>
-              <span className="root-word">
-                {nominative && key === "nominative" ? nominative : root}
+              <span className={`root-word`}>
+                {nominative && key === "nominative"
+                  ? nominative
+                  : root || tentativeRoot}
               </span>
               {nominative && key === "nominative" ? "" : value.singular}
             </td>
             <td className={`declination plural ${value.plural}`}>
-              <span className="root-word">{root}</span>
+              <span className="root-word">{root || tentativeRoot}</span>
               {value.plural}
             </td>
           </tr>

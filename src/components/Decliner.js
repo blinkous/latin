@@ -28,6 +28,7 @@ export const Decliner = () => {
       root={root}
       classes="decliner"
       nominative={nominative}
+      tentativeRoot={genitive}
     ></DeclensionTable>
   );
 
@@ -42,6 +43,7 @@ export const Decliner = () => {
     showDeclined !== true && setShowDeclined(true);
     setStem(val);
     setStemInput(val);
+    val === "" && genitive !== "" && setStemFromGen(genitive);
   };
 
   const handleNomChange = (e) => {
@@ -52,16 +54,15 @@ export const Decliner = () => {
     const val = e.target.value;
     setGenitive(val);
     setStemFromGen(val);
+    showDeclined !== true && setShowDeclined(true);
   };
 
   const setStemFromGen = (genCase) => {
     const newStem = findStem(genCase);
     if (newStem !== undefined) {
       setStem(newStem);
-      setShowDeclined(true);
     } else {
       setStem(stemInput);
-      stem === "" && setShowDeclined(false);
     }
   };
 
