@@ -77,7 +77,6 @@ export const Decliner = () => {
     } else if (regexPlural.test(genForm)) {
       return genForm.replace(regexPlural, "");
     }
-    /* Future add support for both special and non-special char */
   };
 
   const handleKeyDown = (e) => {
