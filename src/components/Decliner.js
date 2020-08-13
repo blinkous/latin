@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import "../styles/Decliner.css";
 import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
-import {
-  cleanUnderscoresToProper,
-  toProperCase,
-  checkForSpecialChars,
-  cleanSpecialChars,
-} from "../js/helpers";
+import { cleanUnderscoresToProper } from "../js/helpers";
+import DeclinerInput from "./DeclinerInput";
 
 export const Decliner = () => {
   const allDeclensions = declensions.declensions;
@@ -79,48 +75,19 @@ export const Decliner = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    checkForSpecialChars(e.key) && e.preventDefault();
-  };
-
-  const handlePaste = (e) => {
-    const pastedText = e.clipboardData.getData("text");
-    const cleanedText = cleanSpecialChars(pastedText);
-    if (pastedText.length !== cleanedText) {
-      e.preventDefault();
-      e.target.value = cleanedText;
-    }
-  };
-
-  const inputs = {
-    nominative: handleNomChange,
-    genitive: handleGenChange,
-    stem: handleStemChange,
-  };
-
   return (
     <div className="decliner">
       <form className="decliner-form">
-        {Object.entries(inputs).map(([key, value_callback], index) => {
-          const inputName = `${key === "stem" ? "Latin " : ""}${toProperCase(
-            key
-          )}${key !== "stem" ? " Case" : ""}`;
-          return (
-            <input
-              key={index}
-              type="text"
-              name={`${key}_word`}
-              className={`decliner-${key}-word decliner-field`}
-              onChange={value_callback}
-              onKeyDown={handleKeyDown}
-              onPaste={handlePaste}
-              placeholder={inputName}
-              title={inputName}
-            />
-          );
-        })}
-
+        <DeclinerInput
+          name="nominative"
+          onChange={handleNomChange}
+        ></DeclinerInput>
+        <DeclinerInput
+          name="genitive"
+          onChange={handleGenChange}
+        ></DeclinerInput>
         <p>or</p>
+        <DeclinerInput name="stem" onChange={handleStemChange}></DeclinerInput>
 
         <select
           name="declension_select"

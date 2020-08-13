@@ -51,3 +51,24 @@
   grid-row: 1;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .decliner-form {
+    /* max-width: 50rem; */
+    /* display: grid; */
+    /* row-gap: var(--padding); */
+    /* grid-template-columns: 1fr; */
+    display: flex;
+    flex-direction: column;
+  }
+  .decliner-form p {
+    grid-row: 3;
+    order: 2;
+  }
+  .decliner-stem-word {
+    grid-row: 4;
+  }
+  .decliner-declension-select {
+    grid-row: 5;
+  }
+}
