@@ -41,15 +41,20 @@ const DeclensionTable = (props) => {
               <span className="use-cases">{cases[key].use}</span>
             </th>
             <td className={`declination singular ${value.singular}`}>
-              <span className={`root-word`}>
-                {nominative && key === "nominative"
-                  ? nominative
-                  : root || tentativeRoot}
-              </span>
+              {/* Only display the root span if there is a root or tentativeRoot or a nominative form and this is the nominative form */}
+              {root || tentativeRoot || (nominative && key === "nominative") ? (
+                <span className={`root-word`}>
+                  {nominative && key === "nominative"
+                    ? nominative
+                    : root || tentativeRoot}
+                </span>
+              ) : null}
               {nominative && key === "nominative" ? "" : value.singular}
             </td>
             <td className={`declination plural ${value.plural}`}>
-              <span className="root-word">{root || tentativeRoot}</span>
+              {root || tentativeRoot ? (
+                <span className="root-word">{root || tentativeRoot}</span>
+              ) : null}
               {value.plural}
             </td>
           </tr>
