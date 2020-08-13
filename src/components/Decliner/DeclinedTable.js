@@ -1,6 +1,6 @@
 import React from "react";
-import DeclensionTable from "./DeclensionTable";
-import declensions from "../js/declensions";
+import DeclensionTable from "../DeclensionTable";
+import declensions from "../../js/declensions";
 
 const DeclinedTable = ({ stem, declension, nominative, genitive }) => {
   const allDeclensions = declensions.declensions;

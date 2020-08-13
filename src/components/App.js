@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles/App.css";
-import DeclensionTable from "./components/DeclensionTable";
-import { Decliner } from "./components/Decliner";
-import declensions from "../src/js/declensions";
+import DeclensionTable from "./DeclensionTable";
+import { Decliner } from "./Decliner/Decliner";
+import declensions from "../js/declensions";
 
 const App = () => {
   const allDeclensions = declensions.declensions;
