@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Decliner.css";
-import DeclensionTable from "./DeclensionTable";
 import declensions from "../js/declensions";
 import { cleanUnderscoresToProper } from "../js/helpers";
 import DeclinerInput from "./DeclinerInput";
+import DeclinedTable from "./DeclinedTable";
 
 export const Decliner = () => {
   const allDeclensions = declensions.declensions;
@@ -15,18 +15,6 @@ export const Decliner = () => {
   const [stemInput, setStemInput] = useState("");
   const [nominative, setNominative] = useState("");
   const [genitive, setGenitive] = useState("");
-
-  const buildDeclinedTables = (root, declension) => (
-    <DeclensionTable
-      declension={allDeclensions[declension]}
-      declensionName={declension}
-      cases={declensions.cases}
-      root={root}
-      classes="decliner"
-      nominative={nominative}
-      tentativeRoot={genitive}
-    ></DeclensionTable>
-  );
 
   const handleDeclChange = (e) => {
     setCurrDeclension(e.target.value);
@@ -101,7 +89,15 @@ export const Decliner = () => {
           ))}
         </select>
       </form>
-      {showDeclined && buildDeclinedTables(stem, currDeclension)}
+
+      {showDeclined && (
+        <DeclinedTable
+          stem={stem}
+          declension={currDeclension}
+          nominative={nominative}
+          genitive={genitive}
+        ></DeclinedTable>
+      )}
     </div>
   );
 };
