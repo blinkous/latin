@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import "../styles/Decliner.css";
-import declensions from "../../js/declensions";
-import { cleanUnderscoresToProper } from "../../js/helpers";
+import "./styles/Decliner.css";
+import { declensions, declension_info } from "../js/declensions";
+import { cleanUnderscoresToProper } from "../js/helpers";
 import DeclinerInput from "./DeclinerInput";
-import DeclinedTable from "./DeclinedTable";
-import DeclensionTable from "../DeclensionTable";
+import DeclensionTable from "./DeclensionTable";
 
 export const Decliner = () => {
-  const allDeclensions = declensions.declensions;
-  const declensionOptions = Object.entries(allDeclensions).map(([key]) => key);
+  const declensionOptions = Object.entries(declensions).map(([key]) => key);
 
   const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
   const [showDeclined, setShowDeclined] = useState(false);
@@ -53,7 +51,7 @@ export const Decliner = () => {
 
   /* Given a latin word in genitive form, find the stem */
   const findStem = (genForm) => {
-    const genEnding = allDeclensions[currDeclension].genitive;
+    const genEnding = declensions[currDeclension].genitive;
     const regexSingular = new RegExp(`${genEnding.singular}$`, "i");
     const regexPlural = new RegExp(`${genEnding.plural}$`, "i");
 
@@ -93,21 +91,17 @@ export const Decliner = () => {
 
       {showDeclined && (
         <DeclensionTable
-          declension={allDeclensions[currDeclension]}
+          declension={declensions[currDeclension]}
           declensionName={currDeclension}
-          cases={declensions.cases}
+          cases={declension_info.cases}
           root={stem}
           classes="decliner"
           nominative={nominative}
           tentativeRoot={genitive}
         ></DeclensionTable>
-        // <DeclinedTable
-        //   stem={stem}
-        //   declension={currDeclension}
-        //   nominative={nominative}
-        //   genitive={genitive}
-        // ></DeclinedTable>
       )}
     </div>
   );
 };
+
+export default Decliner;

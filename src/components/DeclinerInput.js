@@ -3,7 +3,7 @@ import {
   toProperCase,
   checkForSpecialChars,
   cleanSpecialChars,
-} from "../../js/helpers";
+} from "../js/helpers";
 
 const DeclinerInput = ({ name, onChange }) => {
   const cleanName = `${name === "stem" ? "Latin " : ""}${toProperCase(name)}${
