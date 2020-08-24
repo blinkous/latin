@@ -104,6 +104,6 @@
   .case-column,
   .singular-column,
   .plural-column {
-    width: 10rem;
+    width: 30%;
   }
 }

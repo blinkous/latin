@@ -57,14 +57,15 @@
     display: flex;
     flex-direction: column;
   }
+
   .decliner-form p {
-    grid-row: 3;
-    order: 2;
+    margin: 0;
   }
-  .decliner-stem-word {
-    grid-row: 4;
-  }
+
   .decliner-declension-select {
-    grid-row: 5;
+    width: 100%;
+    margin-top: 1rem;
+    border-width: 2px;
+    min-width: unset;
   }
 }
