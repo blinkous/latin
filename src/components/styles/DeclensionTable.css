@@ -94,3 +94,16 @@
   width: 100%;
   text-transform: lowercase;
 }
+
+@media (max-width: 768px) {
+  .declension-table {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .case-column,
+  .singular-column,
+  .plural-column {
+    width: 10rem;
+  }
+}
