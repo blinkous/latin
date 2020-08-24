@@ -45,11 +45,29 @@
   grid-column: 1/4;
   min-width: 20rem;
   margin: auto;
+  color: var(--accent);
 }
 .decliner-form p {
   grid-column: 2;
   grid-row: 1;
   text-align: center;
+}
+
+.decliner .declension-table-title {
+  position: relative;
+  color: var(--background-main);
+  z-index: 0;
+}
+.decliner .declension-table-title::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--accent-1);
+  opacity: 0.8;
+  z-index: -1;
 }
 
 @media (max-width: 768px) {

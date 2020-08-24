@@ -63,7 +63,8 @@ export const Decliner = () => {
   };
 
   return (
-    <div className="decliner">
+    <section className="decliner">
+      <h3 className="heading">Decliner</h3>
       <form className="decliner-form">
         <DeclinerInput
           name="nominative"
@@ -100,7 +101,7 @@ export const Decliner = () => {
           tentativeRoot={genitive}
         ></DeclensionTable>
       )}
-    </div>
+    </section>
   );
 };
 
