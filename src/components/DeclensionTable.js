@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/DeclensionTable.css";
+import "./styles/DeclensionTable.css";
 import { cleanUnderscoresToProper } from "../js/helpers";
 
 const DeclensionTable = (props) => {

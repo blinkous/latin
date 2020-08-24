@@ -55,3 +55,11 @@
   color: var(--accent-1);
   display: block;
 }
+
+@media (max-width: 768px) {
+  #home {
+    width: 95%;
+    margin: auto;
+    min-width: 300px;
+  }
+}
