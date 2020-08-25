@@ -10,7 +10,6 @@ body {
   --background-main: white;
   --foreground-main: var(--dark-gray);
   --dark-gray: rgb(25, 26, 27);
-  /* --dark-gray: rgb(38, 39, 41); */
   --accent-1: rgb(175, 0, 146);
   --accent-2: rgb(104, 0, 223);
   --accent-3: rgb(0, 135, 219);
@@ -38,7 +37,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --background-main: var(--dark-gray);
-    --foreground-main: white;
+    /* --background-main: var(--dark-gray); */
+    /* --foreground-main: white; */
   }
 }

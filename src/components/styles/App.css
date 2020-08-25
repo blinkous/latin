@@ -14,10 +14,7 @@
 .header,
 .decliner {
   grid-column: 1;
-}
-
-.decliner {
-  /* grid-row: 2; */
+  margin-left: 2rem;
 }
 
 .declension-table {
@@ -31,7 +28,6 @@
   height: 100vh;
   overflow: scroll;
   text-align: center;
-  /* background: rgb(38, 39, 41); */
 }
 
 .heading {
@@ -88,6 +84,9 @@
   #home {
     display: block;
   }
+  .ref-tables {
+    height: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -95,5 +94,10 @@
     width: 95%;
     margin: auto;
     min-width: 300px;
+  }
+
+  .header,
+  .decliner {
+    margin-left: 0;
   }
 }
