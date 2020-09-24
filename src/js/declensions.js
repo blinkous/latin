@@ -80,8 +80,9 @@ export const declensions = {
     },
     /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> i",
+      singular: "e|i",
       plural: "i",
+      singular_info: "us -> e | Name end ius -> i",
     },
   },
   neuter_second_declension: {
@@ -107,8 +108,9 @@ export const declensions = {
     },
     /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> i",
+      singular: "e|i",
       plural: "a",
+      singular_info: "us -> e | Name end ius -> i",
     },
   },
   third_declension: {
@@ -293,8 +295,9 @@ export const declensions_special = {
     },
     /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> ī",
+      singular: "e|ī",
       plural: "ī",
+      singular_info: "us -> e | Name end ius -> ī",
     },
   },
   neuter_second_declension: {
@@ -320,8 +323,9 @@ export const declensions_special = {
     },
     /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> ī",
+      singular: "e|ī",
       plural: "a",
+      singular_info: "us -> e | Name end ius -> ī",
     },
   },
   third_declension: {
