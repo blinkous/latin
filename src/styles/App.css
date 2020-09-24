@@ -86,6 +86,7 @@
   }
   .ref-tables {
     height: auto;
+    overflow-x: scroll;
   }
 }
 
