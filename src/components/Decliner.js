@@ -82,6 +82,12 @@ export const Decliner = () => {
           ></DeclinerInput>
         </fieldset>
 
+        <label
+          htmlFor="declension_select"
+          className={`declension-select label`}
+        >
+          Declensions
+        </label>
         <select
           name="declension_select"
           className="decliner-declension-select decliner-field"

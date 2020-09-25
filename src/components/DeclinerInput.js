@@ -36,7 +36,7 @@ const DeclinerInput = ({ name, onChange }) => {
     <>
       <label
         htmlFor={`${name}_word`}
-        className={`decliner-${name}-word label ${isEmpty ? "hide" : ""}`}
+        className={`${name}-word label ${isEmpty ? "hide" : ""}`}
       >
         {cleanName}
       </label>
