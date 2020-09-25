@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/Decliner.css";
+import "../styles/Decliner.css";
 import { declensions, declension_info } from "../js/declensions";
 import { cleanUnderscoresToProper } from "../js/helpers";
 import DeclinerInput from "./DeclinerInput";

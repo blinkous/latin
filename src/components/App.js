@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/App.css";
+import "../styles/App.css";
 import DeclensionTable from "./DeclensionTable";
 import Decliner from "./Decliner";
 import { declensions, declension_info } from "../js/declensions";
