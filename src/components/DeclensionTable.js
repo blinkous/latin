@@ -12,7 +12,7 @@ const DeclensionTable = (props) => {
     tentativeRoot,
   } = props;
 
-  console.log(declension);
+  // console.log(declension);
 
   return (
     <table

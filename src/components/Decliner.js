@@ -66,16 +66,21 @@ export const Decliner = () => {
     <section className="decliner">
       <h3 className="heading">Decliner</h3>
       <form className="decliner-form">
-        <DeclinerInput
-          name="nominative"
-          onChange={handleNomChange}
-        ></DeclinerInput>
-        <DeclinerInput
-          name="genitive"
-          onChange={handleGenChange}
-        ></DeclinerInput>
-        <p>or</p>
-        <DeclinerInput name="stem" onChange={handleStemChange}></DeclinerInput>
+        <fieldset className="decliner-group">
+          <DeclinerInput
+            name="nominative"
+            onChange={handleNomChange}
+          ></DeclinerInput>
+          <DeclinerInput
+            name="genitive"
+            onChange={handleGenChange}
+          ></DeclinerInput>
+          <p>or</p>
+          <DeclinerInput
+            name="stem"
+            onChange={handleStemChange}
+          ></DeclinerInput>
+        </fieldset>
 
         <select
           name="declension_select"

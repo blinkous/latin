@@ -28,6 +28,7 @@
   height: 100vh;
   overflow: scroll;
   text-align: center;
+  /* background: var(--accent-1); */
 }
 
 .heading {
