@@ -13,7 +13,9 @@ const DeclinerInput = ({ name, onChange }) => {
 
   const handleKeyDown = (e) => {
     checkForSpecialChars(e.key) && e.preventDefault();
-    console.log(e.key, e.currentTarget.value);
+  };
+
+  const handleChange = (e) => {
     if (e.target.value !== "") {
       setIsEmpty(false);
     } else {
@@ -45,6 +47,7 @@ const DeclinerInput = ({ name, onChange }) => {
         onChange={onChange}
         onKeyDown={handleKeyDown}
         onPaste={handlePaste}
+        onChange={handleChange}
         placeholder={cleanName}
         title={cleanName}
       />

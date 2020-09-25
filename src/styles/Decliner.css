@@ -29,10 +29,10 @@
 .decliner-field {
   --accent: var(--accent-1);
   /* --accent: var(--foreground-main); */
-  display: block;
 }
 
 .decliner-field {
+  display: block;
   font-size: 110%;
   padding: var(--padding) calc(var(--padding) * 2);
   border: 1px solid var(--accent);
@@ -53,6 +53,7 @@
 }
 
 .label {
+  display: inline-block;
   color: var(--accent);
   /* text-transform: uppercase; */
   font-weight: bold;
@@ -68,7 +69,8 @@
 
 .label.hide {
   opacity: 0;
-  transform: translateY(160%);
+  transform: translateY(50%);
+  pointer-events: none;
 }
 
 .decliner-nominative-word {
