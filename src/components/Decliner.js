@@ -5,7 +5,7 @@ import { cleanUnderscoresToProper } from "../js/helpers";
 import DeclinerInput from "./DeclinerInput";
 import DeclensionTable from "./DeclensionTable";
 
-export const Decliner = () => {
+export const Decliner = (props) => {
   const declensionOptions = Object.entries(declensions).map(([key]) => key);
 
   const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
@@ -111,6 +111,7 @@ export const Decliner = () => {
         classes="decliner"
         nominative={nominative}
         tentativeRoot={genitive}
+        isName={props.isName}
       ></DeclensionTable>
       {/* )} */}
     </section>

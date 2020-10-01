@@ -60,16 +60,20 @@ const App = () => {
           to indicate grammatical case, number and gender.
         </p>
       </header>
-      <Decliner></Decliner>
-      <div className="ref-tables">
-        <h3 className="heading">Declension Tables</h3>
-        <button
-          className={`is-name-btn ${isName ? "active" : ""}`}
-          title="Declining a Name?"
+
+      <div className="is-name-container">
+        Declining Name
+        <div
+          className={`slider ${isName ? "active" : ""}`}
           onClick={handleClick}
         >
-          Name
-        </button>
+          <div className="slider-dot"></div>
+        </div>
+      </div>
+
+      <Decliner isName={isName}></Decliner>
+      <div className="ref-tables">
+        <h3 className="heading">Declension Tables</h3>
         <div className="tables-container">
           {Object.entries(declensions).map(([key, value], index) => (
             <DeclensionTable

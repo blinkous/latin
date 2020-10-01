@@ -7,26 +7,63 @@
   --accent-6: var(--green-palette-6);
   display: grid;
   grid-template-columns: 2fr minmax(27rem, 1fr);
-  grid-auto-rows: 8rem auto;
+  grid-auto-rows: auto;
   width: 100%;
 }
 
 .header,
-.decliner {
+.decliner,
+.is-name-container {
   grid-column: 1;
   margin-left: 2rem;
 }
 
+.header p {
+  /* margin-bottom: 0; */
+}
+
 .ref-tables {
-  grid-column: 2;
-  grid-row: 1/3;
   height: 100vh;
   overflow: scroll;
   text-align: center;
   /* background: var(--accent-3); */
-  /* background: orange; */
   position: fixed;
+  top: 0;
   right: 0;
+}
+
+.slider {
+  --accent: var(--accent-5);
+  --size: 1.2rem;
+  width: calc(var(--size) * 2);
+  height: var(--size);
+  display: inline-block;
+  margin-left: 1rem;
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: 1rem;
+  transition: 0.4s all;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: 0.3s all;
+}
+
+.slider.active {
+  background: var(--accent);
+}
+
+.slider-dot {
+  --accent: rgb(172, 172, 172);
+  background: var(--accent);
+  height: var(--size);
+  width: var(--size);
+  border-radius: 100%;
+  transition: inherit;
+  border: 1px solid var(--accent);
+}
+.slider.active .slider-dot {
+  transform: translateX(100%);
+  background: var(--background-main);
 }
 
 .ref-tables .declension-table {
