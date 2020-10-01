@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/App.css";
 import DeclensionTable from "./DeclensionTable";
 import Decliner from "./Decliner";
 import { declensions, declension_info } from "../js/declensions";
 
 const App = () => {
+  const [isName, setIsName] = useState(false);
+
+  const handleClick = () => {
+    setIsName(() => !isName);
+  };
+
   return (
     <section id="home">
       <header className="header">
@@ -57,6 +63,13 @@ const App = () => {
       <Decliner></Decliner>
       <div className="ref-tables">
         <h3 className="heading">Declension Tables</h3>
+        <button
+          className={`is-name-btn ${isName ? "active" : ""}`}
+          title="Declining a Name?"
+          onClick={handleClick}
+        >
+          Name
+        </button>
         <div className="tables-container">
           {Object.entries(declensions).map(([key, value], index) => (
             <DeclensionTable
@@ -64,6 +77,7 @@ const App = () => {
               declensionName={key}
               key={index}
               cases={declension_info.cases}
+              isName={isName}
             ></DeclensionTable>
           ))}
         </div>

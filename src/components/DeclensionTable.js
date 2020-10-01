@@ -10,6 +10,7 @@ const DeclensionTable = (props) => {
     root,
     nominative,
     tentativeRoot,
+    isName,
   } = props;
 
   return (
@@ -51,7 +52,7 @@ const DeclensionTable = (props) => {
               ) : null}
               {nominative && key === "nominative"
                 ? ""
-                : props.isName
+                : props.isName && key === "vocative" && value.singular_name
                 ? value.singular_name
                 : value.singular}
             </td>
