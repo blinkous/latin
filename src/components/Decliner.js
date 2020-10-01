@@ -31,6 +31,7 @@ export const Decliner = () => {
 
   const handleNomChange = (e) => {
     setNominative(e.target.value);
+    showDeclined !== true && setShowDeclined(true);
   };
 
   const handleGenChange = (e) => {
@@ -75,7 +76,7 @@ export const Decliner = () => {
             name="genitive"
             onChange={handleGenChange}
           ></DeclinerInput>
-          <p>or</p>
+          <p className="or">or</p>
           <DeclinerInput
             name="stem"
             onChange={handleStemChange}
@@ -90,7 +91,7 @@ export const Decliner = () => {
         </label>
         <select
           name="declension_select"
-          className="decliner-declension-select decliner-field"
+          className="declension-select decliner-field"
           onChange={handleDeclChange}
         >
           {declensionOptions.map((el, index) => (

@@ -29,6 +29,7 @@
   overflow: scroll;
   text-align: center;
   /* background: var(--accent-1); */
+  /* position: fixed; */
 }
 
 .heading {
@@ -57,7 +58,7 @@
   width: 20rem;
   position: absolute;
   opacity: 0;
-  bottom: 100%;
+  top: 100%;
   left: -50%;
   padding: 0.75rem;
   border-radius: 9px;

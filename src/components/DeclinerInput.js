@@ -18,6 +18,7 @@ const DeclinerInput = ({ name, onChange }) => {
   const handleChange = (e) => {
     if (e.target.value !== "") {
       setIsEmpty(false);
+      onChange(e);
     } else {
       setIsEmpty(true);
     }
@@ -43,8 +44,7 @@ const DeclinerInput = ({ name, onChange }) => {
       <input
         type="text"
         name={`${name}_word`}
-        className={`decliner-${name}-word decliner-field`}
-        onChange={onChange}
+        className={`${name}-word decliner-${name}-word decliner-field`}
         onKeyDown={handleKeyDown}
         onPaste={handlePaste}
         onChange={handleChange}

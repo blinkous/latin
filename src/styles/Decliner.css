@@ -1,8 +1,8 @@
-.decliner {
-  --padding: 0.5rem;
-}
 .decliner-form {
-  max-width: 50rem;
+  min-width: 10rem;
+  width: 40%;
+  display: inline-block;
+  margin-right: 2rem;
 }
 
 .decliner-group {
@@ -12,16 +12,16 @@
   position: relative;
 }
 
+/* Fields and Labels  */
 .label,
 .decliner-field {
   --accent: var(--accent-1);
-  /* --accent: var(--foreground-main); */
 }
 
 .decliner-field {
   display: block;
   font-size: 110%;
-  padding: var(--padding) calc(var(--padding) * 2);
+  padding: 0.5rem 1rem;
   border: 1px solid var(--accent);
   border-radius: 2rem;
   background: transparent;
@@ -58,34 +58,29 @@
   pointer-events: none;
 }
 
-.decliner-nominative-word {
-}
-
-.decliner-genitive-word {
-}
-
-.decliner-stem-word {
+/* Specific form el style */
+.stem-word {
   --accent: var(--accent-3);
 }
 
-.declension-select.label,
-.decliner-declension-select {
+.declension-select {
   --accent: var(--foreground-main);
 }
 
-.decliner-declension-select {
-  min-width: 20rem;
-  margin: auto;
-  color: var(--accent);
-}
 .declension-select.label {
   margin-top: 1.5rem;
 }
 
-.decliner-form p {
+.or {
   text-align: center;
   margin: 0.2rem 0;
   text-transform: uppercase;
+}
+
+/* Result table */
+.decliner .declension-table {
+  margin: 0;
+  margin-top: 1.2rem;
 }
 
 .decliner .declension-table-title {
