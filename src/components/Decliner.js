@@ -17,7 +17,6 @@ export const Decliner = (props) => {
 
   const handleDeclChange = (e) => {
     setCurrDeclension(e.target.value);
-    console.log(e.target.value, currDeclension);
     stemInput === "" && setStemFromGen(genitive);
   };
 
