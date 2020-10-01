@@ -12,8 +12,6 @@ const DeclensionTable = (props) => {
     tentativeRoot,
   } = props;
 
-  // console.log(declension);
-
   return (
     <table
       className={`declension-table ${declensionName} ${props.classes || ""}${

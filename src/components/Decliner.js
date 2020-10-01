@@ -102,17 +102,17 @@ export const Decliner = () => {
         </select>
       </form>
 
-      {showDeclined && (
-        <DeclensionTable
-          declension={declensions[currDeclension]}
-          declensionName={currDeclension}
-          cases={declension_info.cases}
-          root={stem}
-          classes="decliner"
-          nominative={nominative}
-          tentativeRoot={genitive}
-        ></DeclensionTable>
-      )}
+      {/* {showDeclined && ( */}
+      <DeclensionTable
+        declension={declensions[currDeclension]}
+        declensionName={currDeclension}
+        cases={declension_info.cases}
+        root={stem}
+        classes="decliner"
+        nominative={nominative}
+        tentativeRoot={genitive}
+      ></DeclensionTable>
+      {/* )} */}
     </section>
   );
 };

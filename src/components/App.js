@@ -57,14 +57,16 @@ const App = () => {
       <Decliner></Decliner>
       <div className="ref-tables">
         <h3 className="heading">Declension Tables</h3>
-        {Object.entries(declensions).map(([key, value], index) => (
-          <DeclensionTable
-            declension={value}
-            declensionName={key}
-            key={index}
-            cases={declension_info.cases}
-          ></DeclensionTable>
-        ))}
+        <div className="tables-container">
+          {Object.entries(declensions).map(([key, value], index) => (
+            <DeclensionTable
+              declension={value}
+              declensionName={key}
+              key={index}
+              cases={declension_info.cases}
+            ></DeclensionTable>
+          ))}
+        </div>
       </div>
     </section>
   );
