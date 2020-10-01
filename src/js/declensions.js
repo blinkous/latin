@@ -78,7 +78,6 @@ export const declensions = {
       singular: "o",
       plural: "is",
     },
-    /* Fix this in declining */
     vocative: {
       singular: "e",
       plural: "i",
@@ -106,7 +105,6 @@ export const declensions = {
       singular: "o",
       plural: "is",
     },
-    /* Fix this in declining */
     vocative: {
       singular: "e",
       plural: "a",
@@ -293,7 +291,6 @@ export const declensions_special = {
       singular: "ō",
       plural: "īs",
     },
-    /* Fix this in declining */
     vocative: {
       singular: "e",
       plural: "ī",
@@ -321,7 +318,6 @@ export const declensions_special = {
       singular: "ō",
       plural: "īs",
     },
-    /* Fix this in declining */
     vocative: {
       singular: "e",
       plural: "a",

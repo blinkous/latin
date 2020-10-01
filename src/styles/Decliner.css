@@ -1,8 +1,23 @@
+.decliner {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2%;
+}
+
+.decliner .heading {
+  margin-bottom: 0;
+}
+
+.decliner-form,
+.decliner .declension-table {
+  grid-row: 2;
+}
+
 .decliner-form {
   min-width: 10rem;
-  width: 40%;
   display: inline-block;
-  margin-right: 2rem;
+  grid-column: 1;
 }
 
 .decliner-group {
@@ -82,6 +97,9 @@
   display: inline-block;
   margin: 0;
   margin-top: 1.2rem;
+  grid-column: 2;
+  width: 100%;
+  min-width: 20rem;
   --accent: var(--accent-1);
 }
 
@@ -91,7 +109,17 @@
   z-index: 0;
 }
 
+.decliner .case-column,
+.decliner .singular-column,
+.decliner .plural-column {
+  width: 1%;
+}
+
 @media (max-width: 768px) {
+  .decliner {
+    display: block;
+  }
+
   .decliner-form {
     width: 100%;
   }
@@ -99,11 +127,5 @@
   .decliner .declension-table {
     width: 100%;
     margin: 1rem 0;
-  }
-
-  .decliner .case-column,
-  .decliner .singular-column,
-  .decliner .plural-column {
-    width: 1%;
   }
 }
