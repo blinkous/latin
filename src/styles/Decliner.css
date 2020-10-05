@@ -1,0 +1,131 @@
+.decliner {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2%;
+}
+
+.decliner .heading {
+  margin-bottom: 0;
+}
+
+.decliner-form,
+.decliner .declension-table {
+  grid-row: 2;
+}
+
+.decliner-form {
+  min-width: 10rem;
+  display: inline-block;
+  grid-column: 1;
+}
+
+.decliner-group {
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: relative;
+}
+
+/* Fields and Labels  */
+.label,
+.decliner-field {
+  --accent: var(--accent-1);
+}
+
+.decliner-field {
+  display: block;
+  font-size: 110%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  background: transparent;
+  caret-color: var(--accent);
+  width: 100%;
+  margin-top: 0;
+}
+
+.decliner-field::placeholder {
+  color: var(--accent);
+  opacity: 0.5;
+}
+.decliner-field:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px var(--accent);
+}
+
+.label {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 0.2rem;
+  margin-left: 1rem;
+  font-size: 80%;
+  transition: 0.4s all;
+  transform: none;
+  opacity: 1;
+}
+
+.label.hide {
+  opacity: 0;
+  transform: translateY(50%);
+  pointer-events: none;
+}
+
+/* Specific form el style */
+.stem-word {
+  --accent: var(--accent-3);
+}
+
+.declension-select {
+  --accent: var(--foreground-main);
+}
+
+.declension-select.label {
+  margin-top: 1.5rem;
+}
+
+.or {
+  text-align: center;
+  margin: 0.2rem 0;
+  text-transform: uppercase;
+}
+
+/* Result table */
+.decliner .declension-table {
+  display: inline-block;
+  margin: 0;
+  margin-top: 1.2rem;
+  grid-column: 2;
+  width: 100%;
+  min-width: 20rem;
+  --accent: var(--accent-1);
+}
+
+.decliner .declension-table-title {
+  position: relative;
+  color: var(--background-main);
+  z-index: 0;
+}
+
+.decliner .case-column,
+.decliner .singular-column,
+.decliner .plural-column {
+  width: 1%;
+}
+
+@media (max-width: 768px) {
+  .decliner {
+    display: block;
+  }
+
+  .decliner-form {
+    width: 100%;
+  }
+
+  .decliner .declension-table {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}

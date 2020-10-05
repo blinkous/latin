@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/DeclensionTable.css";
+import "../styles/DeclensionTable.css";
 import { cleanUnderscoresToProper } from "../js/helpers";
 
 const DeclensionTable = (props) => {
@@ -10,6 +10,7 @@ const DeclensionTable = (props) => {
     root,
     nominative,
     tentativeRoot,
+    isName,
   } = props;
 
   return (
@@ -49,7 +50,11 @@ const DeclensionTable = (props) => {
                     : root || tentativeRoot}
                 </span>
               ) : null}
-              {nominative && key === "nominative" ? "" : value.singular}
+              {nominative && key === "nominative"
+                ? ""
+                : props.isName && key === "vocative" && value.singular_name
+                ? value.singular_name
+                : value.singular}
             </td>
             <td className={`declination plural ${value.plural}`}>
               {root || tentativeRoot ? (

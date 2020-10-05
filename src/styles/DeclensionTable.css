@@ -1,46 +1,29 @@
 .declension-table {
-  border: 1px solid rgba(138, 138, 138, 0.308);
   border-collapse: collapse;
-  display: inline-block;
   vertical-align: top;
-  margin: 1rem;
   font-weight: bold;
   border-radius: 9px;
   overflow: hidden;
+  --accent: rgba(189, 189, 189, 0.438);
+  --light-text: rgb(131, 131, 131);
+  --light-text-2: rgb(148, 148, 148);
+  border: 1px solid var(--accent);
 }
-.declension-table.decliner {
-  border: 1px solid var(--accent-1);
-}
+
 .declension-table.tentative .root-word {
   opacity: 0.5;
 }
-.decliner .declension-table-title {
-  position: relative;
-  color: var(--background-main);
-  z-index: 0;
-}
-.decliner .declension-table-title::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: var(--accent-1);
-  opacity: 0.8;
-  z-index: -1;
-}
+
 .declension-table-title {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: rgba(189, 189, 189, 0.438);
+  background: var(--accent);
   padding: 0.5rem;
 }
 
 .declension-table td,
 .declension-table th {
-  border: 1px solid rgba(255, 255, 255, 0.308);
   border-right: none;
   border-left: none;
   padding: 0.25rem 0.5rem;
@@ -85,25 +68,12 @@
   color: var(--accent-6);
 }
 .root-word {
-  color: rgb(131, 131, 131);
+  color: var(--light-text);
 }
 .use-cases {
-  color: rgb(148, 148, 148);
+  color: var(--light-text-2);
   display: block;
   margin: 0;
   width: 100%;
   text-transform: lowercase;
-}
-
-@media (max-width: 768px) {
-  .declension-table {
-    width: 100%;
-    margin: 1rem 0;
-  }
-
-  .case-column,
-  .singular-column,
-  .plural-column {
-    width: 30%;
-  }
 }

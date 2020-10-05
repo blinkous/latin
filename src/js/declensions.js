@@ -78,10 +78,10 @@ export const declensions = {
       singular: "o",
       plural: "is",
     },
-    /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> i",
+      singular: "e",
       plural: "i",
+      singular_name: "i",
     },
   },
   neuter_second_declension: {
@@ -105,10 +105,10 @@ export const declensions = {
       singular: "o",
       plural: "is",
     },
-    /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> i",
+      singular: "e",
       plural: "a",
+      singular_name: "i",
     },
   },
   third_declension: {
@@ -291,10 +291,10 @@ export const declensions_special = {
       singular: "ō",
       plural: "īs",
     },
-    /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> ī",
+      singular: "e",
       plural: "ī",
+      singular_name: "ī",
     },
   },
   neuter_second_declension: {
@@ -318,10 +318,10 @@ export const declensions_special = {
       singular: "ō",
       plural: "īs",
     },
-    /* Fix this in declining */
     vocative: {
-      singular: "us -> e | Name end ius -> ī",
+      singular: "e",
       plural: "a",
+      singular_name: "ī",
     },
   },
   third_declension: {

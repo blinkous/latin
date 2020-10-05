@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./styles/Decliner.css";
+import "../styles/Decliner.css";
 import { declensions, declension_info } from "../js/declensions";
 import { cleanUnderscoresToProper } from "../js/helpers";
 import DeclinerInput from "./DeclinerInput";
 import DeclensionTable from "./DeclensionTable";
 
-export const Decliner = () => {
+export const Decliner = (props) => {
   const declensionOptions = Object.entries(declensions).map(([key]) => key);
 
   const [currDeclension, setCurrDeclension] = useState(declensionOptions[0]);
@@ -17,7 +17,6 @@ export const Decliner = () => {
 
   const handleDeclChange = (e) => {
     setCurrDeclension(e.target.value);
-    console.log(e.target.value, currDeclension);
     stemInput === "" && setStemFromGen(genitive);
   };
 
@@ -31,6 +30,7 @@ export const Decliner = () => {
 
   const handleNomChange = (e) => {
     setNominative(e.target.value);
+    showDeclined !== true && setShowDeclined(true);
   };
 
   const handleGenChange = (e) => {
@@ -63,22 +63,34 @@ export const Decliner = () => {
   };
 
   return (
-    <div className="decliner">
+    <section className="decliner">
+      <h3 className="heading">Decliner</h3>
       <form className="decliner-form">
-        <DeclinerInput
-          name="nominative"
-          onChange={handleNomChange}
-        ></DeclinerInput>
-        <DeclinerInput
-          name="genitive"
-          onChange={handleGenChange}
-        ></DeclinerInput>
-        <p>or</p>
-        <DeclinerInput name="stem" onChange={handleStemChange}></DeclinerInput>
+        <fieldset className="decliner-group">
+          <DeclinerInput
+            name="nominative"
+            onChange={handleNomChange}
+          ></DeclinerInput>
+          <DeclinerInput
+            name="genitive"
+            onChange={handleGenChange}
+          ></DeclinerInput>
+          <p className="or">or</p>
+          <DeclinerInput
+            name="stem"
+            onChange={handleStemChange}
+          ></DeclinerInput>
+        </fieldset>
 
+        <label
+          htmlFor="declension_select"
+          className={`declension-select label`}
+        >
+          Declensions
+        </label>
         <select
           name="declension_select"
-          className="decliner-declension-select decliner-field"
+          className="declension-select decliner-field"
           onChange={handleDeclChange}
         >
           {declensionOptions.map((el, index) => (
@@ -89,18 +101,19 @@ export const Decliner = () => {
         </select>
       </form>
 
-      {showDeclined && (
-        <DeclensionTable
-          declension={declensions[currDeclension]}
-          declensionName={currDeclension}
-          cases={declension_info.cases}
-          root={stem}
-          classes="decliner"
-          nominative={nominative}
-          tentativeRoot={genitive}
-        ></DeclensionTable>
-      )}
-    </div>
+      {/* {showDeclined && ( */}
+      <DeclensionTable
+        declension={declensions[currDeclension]}
+        declensionName={currDeclension}
+        cases={declension_info.cases}
+        root={stem}
+        classes="decliner"
+        nominative={nominative}
+        tentativeRoot={genitive}
+        isName={props.isName}
+      ></DeclensionTable>
+      {/* )} */}
+    </section>
   );
 };
 
