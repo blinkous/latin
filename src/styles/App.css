@@ -17,19 +17,6 @@
   width: calc(100% - 31rem);
 }
 
-.ref-tables {
-  --margin: 1rem;
-  height: calc(100vh - var(--margin) * 2);
-  position: fixed;
-  top: var(--margin);
-  right: var(--margin);
-  overflow: scroll;
-  text-align: center;
-  border-radius: 1rem;
-  overflow: scroll;
-  border: 1px solid grey;
-}
-
 .slider {
   --accent: var(--accent-5);
   --size: 1.2rem;
@@ -62,11 +49,6 @@
 .slider.active .slider-dot {
   transform: translateX(100%);
   background: var(--background-main);
-}
-
-.ref-tables .declension-table {
-  margin: 1rem;
-  display: block;
 }
 
 .heading {
@@ -119,6 +101,83 @@
   display: block;
 }
 
+.ref-tables {
+  --margin: 1rem;
+  --width: 26rem;
+  height: calc(100vh - var(--margin) * 2);
+  width: var(--width);
+  position: fixed;
+  top: var(--margin);
+  right: var(--margin);
+  overflow: scroll;
+  text-align: center;
+  border-radius: 1rem;
+  overflow: scroll;
+  border: 1px solid grey;
+  box-sizing: border-box;
+}
+
+.ref-tables .declension-table {
+  margin: 1rem;
+  display: block;
+}
+
+.scroll-prompt {
+  --size: 3.5rem;
+  --accent: var(--background-main);
+  width: var(--size);
+  height: var(--size);
+  bottom: 3rem;
+  right: calc(var(--width) / 2 + var(--margin) - var(--size) / 2);
+  position: fixed;
+  padding-top: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 100%;
+  z-index: 10;
+  text-align: center;
+  background: var(--foreground-main);
+  color: var(--accent);
+  transition: 0.4s all;
+}
+
+.scroll-prompt.hide {
+  opacity: 0;
+  transform: translate(0, -50%);
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.scroll-prompt p,
+.arrow {
+  animation: bounce 3s infinite;
+}
+
+.scroll-prompt p {
+  margin: 0;
+}
+
+.arrow {
+  --asize: 1.5rem;
+  height: var(--asize);
+  width: var(--asize);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--accent);
+  stroke-width: 2;
+  fill: none;
+}
+
 @media (max-width: 1024px) {
   #home {
     width: 95%;
@@ -137,6 +196,7 @@
     right: 0;
     height: 30rem;
     margin: 3rem auto;
+    width: 100%;
   }
 
   .tables-container {
@@ -154,6 +214,19 @@
     position: absolute;
     width: 100%;
     text-align: center;
+  }
+
+  .scroll-prompt {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: rotate(270deg);
+  }
+
+  .scroll-prompt.hide {
+    opacity: 0;
+    transform: translate(-50%, 0) rotate(270deg);
+    pointer-events: none;
   }
 }
 

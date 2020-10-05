@@ -6,9 +6,16 @@ import { declensions, declension_info } from "../js/declensions";
 
 const App = () => {
   const [isName, setIsName] = useState(false);
+  const [didScroll, setDidScroll] = useState(false);
 
   const handleClick = () => {
     setIsName(() => !isName);
+  };
+
+  const handleScroll = () => {
+    if (!didScroll) {
+      setDidScroll(() => !didScroll);
+    }
   };
 
   return (
@@ -72,7 +79,7 @@ const App = () => {
       </div>
 
       <Decliner isName={isName}></Decliner>
-      <div className="ref-tables">
+      <div className="ref-tables" onScroll={handleScroll}>
         <h3 className="heading">Declension Tables</h3>
         <div className="tables-container">
           {Object.entries(declensions).map(([key, value], index) => (
@@ -84,6 +91,17 @@ const App = () => {
               isName={isName}
             ></DeclensionTable>
           ))}
+        </div>
+        <div className={`scroll-prompt ${didScroll ? "hide" : ""}`}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            className="arrow"
+          >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
         </div>
       </div>
     </section>
