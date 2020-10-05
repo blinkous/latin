@@ -18,10 +18,10 @@ const DeclinerInput = ({ name, onChange }) => {
   const handleChange = (e) => {
     if (e.target.value !== "") {
       setIsEmpty(false);
-      onChange(e);
     } else {
       setIsEmpty(true);
     }
+    onChange(e);
   };
 
   const handlePaste = (e) => {
